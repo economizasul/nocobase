@@ -1,6 +1,6 @@
 FROM nocobase/nocobase:latest
 
-WORKDIR /app/nocobase
+WORKDIR /app
 
 EXPOSE 13000
 
