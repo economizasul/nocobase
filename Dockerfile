@@ -2,6 +2,6 @@ FROM nocobase/nocobase:latest
 
 WORKDIR /app
 
-EXPOSE 13000
+EXPOSE $PORT
 
 CMD ["sh", "-c", "yarn start --port $PORT"]
