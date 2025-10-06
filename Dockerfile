@@ -1,4 +1,5 @@
-FROM nocobase/nocobase:1.8.24-full  # Use imagem oficial pré-build para evitar build lento
+# Use imagem oficial pré-build para evitar build lento
+FROM nocobase/nocobase:1.8.24-full
 
 WORKDIR /app
 
