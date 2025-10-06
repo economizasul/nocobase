@@ -1,7 +1,15 @@
-FROM nocobase/nocobase:latest
+FROM node:18-alpine
 
 WORKDIR /app
 
-EXPOSE $PORT
+RUN apk add --no-cache bash git postgresql-client
 
-CMD ["sh", "-c", "yarn start --port $PORT"]
+COPY package*.json ./
+RUN npm ci --only=production
+
+COPY . .
+RUN npm run build
+
+EXPOSE 13000
+
+CMD ["sh", "-c", "npm run start"]
