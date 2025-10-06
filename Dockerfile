@@ -1,21 +1,18 @@
-FROM node:18-alpine
+FROM nocobase/nocobase:1.8.24-full  # Use imagem oficial pré-build para evitar build lento
 
 WORKDIR /app
 
-# Copie os arquivos de configuração
+# Copie apenas arquivos de config (se precisar customizar)
 COPY package*.json ./
 
-# Instale apenas as dependências de produção
-RUN npm install --only=production
+# Instale dependências de produção (rápido, pois base já tem muito)
+RUN npm ci --only=production --no-optional
 
-# Copie o restante do código
+# Copie o código fonte (se houver customizações)
 COPY . .
 
-# Construa o projeto
-RUN npm run build
-
-# Exponha a porta (ajuste conforme necessário)
+# Exponha a porta padrão do NocoBase (13000, mas Railway usa $PORT)
 EXPOSE $PORT
 
-# Comando para iniciar a aplicação
-CMD ["sh", "-c", "node dist/index.js --port $PORT"]
+# Comando de start oficial (usa variáveis de env para DB, etc.)
+CMD ["npm", "start"]
