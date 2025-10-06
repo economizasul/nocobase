@@ -4,4 +4,4 @@ WORKDIR /app
 
 EXPOSE 13000
 
-CMD ["yarn", "start"]
+CMD ["sh", "-c", "yarn start --port $PORT"]
