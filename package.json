@@ -2,8 +2,7 @@
   "name": "nocobase",
   "version": "1.0.0",
   "scripts": {
-    "start": "node ./dist/index.js",
-    "build": "nocobase build"  // Adicione se necessário, veja docs NocoBase
+    "start": "node ./dist/index.js"
   },
   "dependencies": {
     "@nocobase/server": "latest"
