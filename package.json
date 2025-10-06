@@ -3,9 +3,11 @@
   "version": "1.0.8",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "npx @nocobase/cli build"
+    "build": "npx @nocobase/cli build",
+    "dev": "npx @nocobase/cli dev"
   },
   "dependencies": {
-    "@nocobase/server": "1.8.24"
+    "@nocobase/server": "1.8.24",
+    "@nocobase/cli": "1.8.24"
   }
 }
