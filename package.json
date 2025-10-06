@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "nocobase build" // Mantenha este script
+    "build": "nocobase build"
   },
   "dependencies": {
     "@nocobase/server": "latest"
