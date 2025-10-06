@@ -12,4 +12,4 @@ RUN npm run build
 
 EXPOSE $PORT
 
-CMD ["sh", "-c", "PORT=$PORT npm run start"]
+CMD ["sh", "-c", "PORT=$PORT node ./dist/index.js --port $PORT"]
