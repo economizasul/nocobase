@@ -2,17 +2,20 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-RUN apk add --no-cache bash git postgresql-client
-
+# Copie os arquivos de configuração
 COPY package*.json ./
-# CORRIGIDO: Mudança de 'npm ci' para 'npm install' para evitar o erro de 'package-lock.json'
+
+# Instale apenas as dependências de produção
 RUN npm install --only=production
 
+# Copie o restante do código
 COPY . .
+
+# Construa o projeto
 RUN npm run build
 
+# Exponha a porta (ajuste conforme necessário)
 EXPOSE $PORT
 
-# Seu comando CMD original mantido:
-CMD ["sh", "-c", "PORT=$PORT node ./dist/index.js --port $PORT"]
-
+# Comando para iniciar a aplicação
+CMD ["sh", "-c", "node dist/index.js --port $PORT"]
