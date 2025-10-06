@@ -15,3 +15,4 @@ EXPOSE $PORT
 
 # Seu comando CMD original mantido:
 CMD ["sh", "-c", "PORT=$PORT node ./dist/index.js --port $PORT"]
+
