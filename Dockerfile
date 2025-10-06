@@ -10,6 +10,6 @@ RUN npm ci --only=production
 COPY . .
 RUN npm run build
 
-EXPOSE 13000
+EXPOSE $PORT
 
-CMD ["sh", "-c", "npm run start"]
+CMD ["sh", "-c", "npm run start --port $PORT"]
