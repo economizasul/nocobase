@@ -6,9 +6,9 @@ WORKDIR /app
 # Copia os arquivos do projeto
 COPY . .
 
-# Limpa cache e instala dependências
+# Configura o registry antes de qualquer operação
+RUN npm config set registry https://registry.yarnpkg.com/
 RUN npm cache clean --force
-RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install --legacy-peer-deps
 
 # Fase de runtime
