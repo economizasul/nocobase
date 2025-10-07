@@ -1,5 +1,8 @@
-FROM nocobase/nocobase:0.21-full
+FROM nocobase/nocobase:1.8.24-full
+
+# Instala dependências com legacy-peer-deps para ignorar conflicts
+RUN npm install --legacy-peer-deps
 
 EXPOSE $PORT
 
-CMD ["sh", "-c", "yarn start --port $PORT"]
+CMD ["npx", "@nocobase/cli", "start", "--host", "0.0.0.0", "--port", "$PORT"]
