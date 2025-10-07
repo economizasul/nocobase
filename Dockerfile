@@ -21,4 +21,4 @@ COPY . /app/nocobase
 EXPOSE $PORT
 
 # Comando de start oficial
-CMD ["npx", "@nocobase/cli", "start", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD ["sh", "-c", "npx @nocobase/cli start --host 0.0.0.0 --port $PORT"]
