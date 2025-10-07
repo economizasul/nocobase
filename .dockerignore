@@ -1,6 +1,14 @@
 # Ignore everything under the storage/app-dev directory
 storage/app-dev
 
+# Adicionar: Exclui todos os arquivos de ambiente estático
+.env
+.env.development
+.env.production
+
+# Adicionar: Exclui o diretório de cache do yarn (economiza espaço e tempo)
+.yarn/cache
+
 # Ignore .umi and .umi-production directories wherever they are
 **/.umi
 **/.umi-production
