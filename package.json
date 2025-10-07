@@ -1,12 +1,13 @@
 {
   "name": "nocobase",
-  "version": "1.0.0", 
+  "version": "1.0.0",
   "scripts": {
-    "start": "node ./dist/index.js"
+    "start": "npx @nocobase/cli start",
+    "build": "npx @nocobase/cli build"
   },
   "dependencies": {
-    "@nocobase/server": "0.x",
-    "@nocobase/cli": "0.x",
-    "@nocobase/test": "0.x"
+    "@nocobase/server": "1.8.24",
+    "@nocobase/cli": "1.8.24",
+    "@nocobase/test": "1.8.24"  // Adicione esta linha
   }
 }
