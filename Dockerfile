@@ -9,4 +9,4 @@ RUN npm install --legacy-peer-deps
 
 EXPOSE $PORT
 
-CMD ["npx", "@nocobase/cli", "start", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD ["yarn", "start", "--port", "$PORT", "--host", "0.0.0.0"]
