@@ -3,7 +3,8 @@ FROM nocobase/nocobase:1.8.24-full
 # Copia os arquivos do projeto para o diretório de trabalho
 COPY . /app/
 
-# Instala dependências com legacy-peer-deps para ignorar conflitos
+# Limpa o cache do npm e instala dependências
+RUN npm cache clean --force
 RUN npm install --legacy-peer-deps
 
 EXPOSE $PORT
