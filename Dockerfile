@@ -1,6 +1,9 @@
 FROM nocobase/nocobase:1.8.24-full
 
-# Instala dependências com legacy-peer-deps para ignorar conflicts
+# Copia os arquivos do projeto para o diretório de trabalho
+COPY . /app/
+
+# Instala dependências com legacy-peer-deps para ignorar conflitos
 RUN npm install --legacy-peer-deps
 
 EXPOSE $PORT
