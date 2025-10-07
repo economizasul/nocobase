@@ -21,4 +21,4 @@ COPY . /app/nocobase
 EXPOSE $PORT
 
 # Comando de start oficial
-CMD ["sh", "-c", "DB_USERNAME=$POSTGRES_USER DB_PASSWORD=$POSTGRES_PASSWORD DB_DATABASE=$POSTGRES_DB npx @nocobase/cli start --host 0.0.0.0 --port $PORT"]
+ENTRYPOINT ["/bin/sh", "-c", "DB_USERNAME=$POSTGRES_USER DB_PASSWORD=$POSTGRES_PASSWORD DB_DATABASE=$POSTGRES_DB npx @nocobase/cli start --host 0.0.0.0 --port $PORT"]
