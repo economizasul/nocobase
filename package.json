@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@nocobase/server": "1.8.24",
-    "@nocobase/cli": "1.8.24"
+    "@nocobase/cli": "1.8.24",
+    "@nocobase/test": "0.x"
   }
 }
