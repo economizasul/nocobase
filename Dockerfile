@@ -1,12 +1,25 @@
+# Fase de build
+FROM node:20.19.5 AS builder
+
+WORKDIR /app
+
+# Copia os arquivos do projeto
+COPY . .
+
+# Limpa cache e instala dependências
+RUN npm cache clean --force
+RUN npm config set registry https://registry.npmmirror.com/
+RUN npm install --legacy-peer-deps
+
+# Fase de runtime
 FROM nocobase/nocobase:1.8.24-full
 
-# Copia os arquivos do projeto para o diretório de trabalho
-COPY . /app/
+WORKDIR /app
 
-# Limpa o cache do npm e instala dependências
-RUN npm cache clean --force
-RUN npm install --legacy-peer-deps
+# Copia apenas as dependências instaladas
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
 
 EXPOSE $PORT
 
-CMD ["yarn", "start", "--port", "$PORT", "--host", "0.0.0.0"]
+CMD ["npm", "start", "--port", "$PORT", "--host", "0.0.0.0"]
